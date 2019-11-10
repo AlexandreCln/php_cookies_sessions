@@ -1,13 +1,8 @@
 <?php session_start();
 
-setcookie('cookie_id','',time() - 3600);
-
-var_dump($_COOKIE);
-var_dump($_GET);
-
 if (!empty($_GET['add_to_cart'])) {
 
-    setcookie($_GET['add_to_cart'], time() + 500);
+    setcookie('cookie_id[' . $_GET['add_to_cart'] . ']', $_GET['add_to_cart'], time() + 500);
 }
 
 ?>
