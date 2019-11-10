@@ -38,7 +38,7 @@
                     <li><a href="#">Nuts</a></li>
                     <li><a href="#">Gluten full</a></li>
                     <li>
-                        <a href="/cart.php" class="btn btn-warning navbar-btn">
+                        <a href="<?php if (isset($_SESSION['loginname'])): echo 'cart.php'; else: echo 'login.php' ?><?php endif; ?>" class="btn btn-warning navbar-btn">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                             Cart
                         </a>
@@ -48,6 +48,11 @@
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello Wilder !</strong>
+        <?php if (isset($_SESSION['loginname'])): ?>
+            <strong>Hello <?= $_SESSION['loginname']?> !</strong>
+        <button class="btn btn-warning"><a href="logout.php">Log Out</a></button>
+        <?php else: ?>
+        <button class="btn btn-info"><a href="login.php">Login</a></button>
+        <?php endif; ?>
     </div>
 </header>

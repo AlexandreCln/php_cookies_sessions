@@ -1,3 +1,24 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['loginname'])) {
+    header('Location: http://localhost:8000/');
+
+} else {
+
+    if ($_POST) {
+
+        if ($_POST["loginname"] == 'Alexandre') {
+
+            $_SESSION["loginname"] = $_POST['loginname'];
+            header('Location: http://localhost:8000/');
+        }
+    }
+}
+
+
+?>
 <?php require 'inc/head.php'; ?>
 <div class="container" style="margin-top:40px">
     <div class="row">
@@ -7,7 +28,7 @@
                     <strong> Sign in to continue</strong>
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="#" method="POST">
+                    <form role="form" method="POST">
                         <fieldset>
                             <div class="row">
                                 <div class="center-block">

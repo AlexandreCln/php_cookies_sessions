@@ -1,3 +1,17 @@
+<?php session_start();
+
+setcookie('cookie_id','',time() - 3600);
+
+var_dump($_COOKIE);
+var_dump($_GET);
+
+if (!empty($_GET['add_to_cart'])) {
+
+    setcookie($_GET['add_to_cart'], time() + 500);
+}
+
+?>
+
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
 <section class="cookies container-fluid">
